@@ -137,11 +137,11 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
     <>
       <ToastContainer position="top-right" autoClose={5000} />
       <audio ref={audioRef} src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b6b1b2b7.mp3" preload="auto" />
-      <div className="fixed top-20 right-4 z-50 flex flex-col items-end">
+      <div className="flex flex-col items-end">
         <div className="flex items-center gap-2">
           <button
             className={`px-3 py-2 rounded-lg shadow-lg transition-colors ${
-              soundOn ? 'bg-green-500 hover:bg-green-600 text-white' : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
+              soundOn ? 'bg-white bg-opacity-20 hover:bg-opacity-30 text-white backdrop-blur-sm' : 'bg-white bg-opacity-10 hover:bg-opacity-20 text-gray-200 backdrop-blur-sm'
             }`}
             onClick={() => setSoundOn((s) => !s)}
             title={soundOn ? 'Sound On' : 'Sound Off'}
@@ -150,12 +150,12 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
           </button>
           
           <button
-            className="relative bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg shadow-lg transition-colors flex items-center gap-2"
+            className="relative bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg shadow-lg transition-colors flex items-center gap-2 backdrop-blur-sm"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             <span className="text-2xl">🔔</span>
             {history.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5 font-semibold">
+              <span className="absolute -top-2 -right-2 bg-yellow-400 text-orange-900 text-xs rounded-full px-2 py-0.5 font-semibold">
                 {history.length}
               </span>
             )}
@@ -171,7 +171,7 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
         </div>
         
         {isDropdownOpen && (
-          <div className="mt-2 bg-white rounded-lg shadow-2xl w-96 max-h-96 overflow-hidden border border-gray-200">
+          <div className="absolute top-full mt-2 right-4 bg-white rounded-lg shadow-2xl w-96 max-h-96 overflow-hidden border border-gray-200">
             <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-xl">📬</span>

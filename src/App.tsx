@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg">
+      <header className="bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -21,15 +21,16 @@ function App() {
                 <p className="text-sm text-orange-100">Order Management Dashboard</p>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-sm">Live</span>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-sm">Live</span>
+              </div>
+              <NotificationSystem onViewOrder={setSelectedOrderForNotification} />
             </div>
           </div>
         </div>
       </header>
-      
-      <NotificationSystem onViewOrder={setSelectedOrderForNotification} />
       <Dashboard />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 max-w-7xl mx-auto">
         <CustomerList />
