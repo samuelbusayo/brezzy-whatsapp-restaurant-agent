@@ -16,7 +16,9 @@ A real-time customer order management dashboard for "Brezzy Stirs & Fries" food 
 - **Frontend**: React 18 with TypeScript
 - **Styling**: Tailwind CSS
 - **Database**: Supabase (PostgreSQL)
+- **Real-time**: Supabase Realtime
 - **Build Tool**: Vite
+- **Hosting**: Vercel (Serverless)
 - **Notifications**: React Toastify
 
 ## Database Schema
@@ -88,7 +90,43 @@ http://localhost:5173
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run server` - Start webhook server (optional)
+- `npm run server` - Start webhook server (local development only)
+
+## 🚀 Deploying to Vercel
+
+This app is ready for serverless deployment on Vercel! Follow these quick steps:
+
+### Quick Deploy (5 minutes)
+
+1. **Push to GitHub** (already done ✅)
+2. **Import to Vercel**: https://vercel.com/new
+3. **Configure Settings**:
+   - Framework: `Vite`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+4. **Add Environment Variables**:
+   ```
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+5. **Deploy!**
+
+### 📚 Deployment Guides
+
+For detailed deployment instructions, see:
+- **📖 Quick Start**: [`QUICK_START.md`](./QUICK_START.md) - Deploy in 5 minutes
+- **✅ Deployment Checklist**: [`DEPLOYMENT_CHECKLIST.md`](./DEPLOYMENT_CHECKLIST.md) - Step-by-step guide
+- **📋 Full Guide**: [`VERCEL_DEPLOYMENT.md`](./VERCEL_DEPLOYMENT.md) - Complete documentation
+- **🏗️ Architecture**: [`ARCHITECTURE.md`](./ARCHITECTURE.md) - System overview
+
+### Webhook Endpoint
+
+After deployment, your webhook will be available at:
+```
+https://your-app.vercel.app/api/webhook
+```
+
+Use this URL in your WhatsApp Business API or messaging platform configuration.
 
 ## Features in Detail
 
