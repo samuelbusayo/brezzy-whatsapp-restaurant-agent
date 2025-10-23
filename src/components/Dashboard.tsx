@@ -85,52 +85,52 @@ const Dashboard = () => {
     };
   }, []);
 
-  if (stats.loading) return <div className="p-6">Loading dashboard...</div>;
-  if (stats.error) return <div className="p-6 text-red-500">Error: {stats.error}</div>;
+  if (stats.loading) return <div className="p-3 sm:p-6">Loading dashboard...</div>;
+  if (stats.error) return <div className="p-3 sm:p-6 text-red-500 dark:text-red-400">Error: {stats.error}</div>;
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <h2 className="text-xl font-bold mb-4 text-gray-800">Dashboard Overview</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-4">
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-blue-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">👥</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Total Customers</span>
-          <span className="text-2xl font-bold text-blue-600">{stats.totalCustomers}</span>
+    <div className="p-3 sm:p-6 max-w-7xl mx-auto">
+      <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-gray-800 dark:text-gray-100">Dashboard Overview</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-2 sm:gap-4">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-blue-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">👥</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Total Customers</span>
+          <span className="text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400">{stats.totalCustomers}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-indigo-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">📦</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Total Orders</span>
-          <span className="text-2xl font-bold text-indigo-600">{stats.totalOrders}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-indigo-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">📦</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Total Orders</span>
+          <span className="text-xl sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400">{stats.totalOrders}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-purple-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">📝</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Orders Today</span>
-          <span className="text-2xl font-bold text-purple-600">{stats.ordersToday}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-purple-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">📝</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Orders Today</span>
+          <span className="text-xl sm:text-2xl font-bold text-purple-600 dark:text-purple-400">{stats.ordersToday}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-emerald-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">💵</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Total Revenue</span>
-          <span className="text-2xl font-bold text-emerald-600">₦{stats.totalRevenue.toLocaleString()}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-emerald-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">💵</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Total Revenue</span>
+          <span className="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">₦{stats.totalRevenue.toLocaleString()}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-green-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">💰</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Revenue Today</span>
-          <span className="text-2xl font-bold text-green-600">₦{stats.revenueToday.toLocaleString()}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-green-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">💰</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Revenue Today</span>
+          <span className="text-lg sm:text-2xl font-bold text-green-600 dark:text-green-400">₦{stats.revenueToday.toLocaleString()}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-yellow-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">⏳</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Pending Orders</span>
-          <span className="text-2xl font-bold text-yellow-600">{stats.pendingOrders}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-yellow-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">⌛</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Pending Orders</span>
+          <span className="text-xl sm:text-2xl font-bold text-yellow-600 dark:text-yellow-400">{stats.pendingOrders}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-teal-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">✅</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Paid Orders</span>
-          <span className="text-2xl font-bold text-teal-600">{stats.paidOrders}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-teal-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">✅</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Paid Orders</span>
+          <span className="text-xl sm:text-2xl font-bold text-teal-600 dark:text-teal-400">{stats.paidOrders}</span>
         </div>
-        <div className="bg-white shadow-lg rounded-lg p-4 flex flex-col items-center border-t-4 border-cyan-500 hover:shadow-xl transition-shadow">
-          <span className="text-4xl mb-2">🚚</span>
-          <span className="text-sm text-gray-600 font-medium text-center">Delivered Orders</span>
-          <span className="text-2xl font-bold text-cyan-600">{stats.deliveredOrders}</span>
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-3 sm:p-4 flex flex-col items-center border-t-4 border-cyan-500 hover:shadow-xl transition-shadow">
+          <span className="text-3xl sm:text-4xl mb-1 sm:mb-2">🚚</span>
+          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium text-center">Delivered Orders</span>
+          <span className="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400">{stats.deliveredOrders}</span>
         </div>
       </div>
     </div>
