@@ -60,17 +60,18 @@ const CustomerList = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div className="overflow-x-auto -mx-4 sm:mx-0">
-        <table className="w-full text-left text-sm sm:text-base">
-          <thead className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
-            <tr>
-              <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200">Name</th>
-              <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200">Phone</th>
-              <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200">Orders</th>
-              <th className="p-2 sm:p-3 font-semibold text-right text-gray-700 dark:text-gray-200">Total Spent</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div className="overflow-x-auto -mx-4 sm:mx-0 touch-pan-x">
+        <div className="min-w-full inline-block align-middle">
+          <table className="w-full text-left text-sm sm:text-base min-w-[600px]">
+            <thead className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
+              <tr>
+                <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">Name</th>
+                <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">Phone</th>
+                <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200 whitespace-nowrap">Orders</th>
+                <th className="p-2 sm:p-3 font-semibold text-right text-gray-700 dark:text-gray-200 whitespace-nowrap">Total Spent</th>
+              </tr>
+            </thead>
+            <tbody>
             {filtered.length === 0 ? (
               <tr>
                 <td colSpan={4} className="text-center p-6 text-gray-500 dark:text-gray-400">No customers found</td>
@@ -91,6 +92,7 @@ const CustomerList = () => {
             )}
           </tbody>
         </table>
+        </div>
       </div>
       {selectedCustomer && (
         <CustomerDetailsModal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} />
