@@ -140,13 +140,17 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
       <div className="flex flex-col items-end">
         <div className="flex items-center gap-2">
           <button
-            className={`px-3 py-2 rounded-lg shadow-lg transition-colors ${
+            className={`p-2 rounded-lg shadow-lg transition-colors ${
               soundOn ? 'bg-white bg-opacity-20 hover:bg-opacity-30 text-white backdrop-blur-sm' : 'bg-white bg-opacity-10 hover:bg-opacity-20 text-gray-200 backdrop-blur-sm'
             }`}
             onClick={() => setSoundOn((s) => !s)}
             title={soundOn ? 'Sound On' : 'Sound Off'}
           >
-            {soundOn ? '🔔 Sound On' : '🔕 Sound Off'}
+            {soundOn ? (
+              <span className="text-xl">🔊</span>
+            ) : (
+              <span className="text-xl">🔇</span>
+            )}
           </button>
           
           <button
