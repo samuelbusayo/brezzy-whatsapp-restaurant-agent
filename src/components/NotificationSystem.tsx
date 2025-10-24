@@ -138,33 +138,33 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
       <ToastContainer position="top-right" autoClose={5000} />
       <audio ref={audioRef} src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b6b1b2b7.mp3" preload="auto" />
       <div className="flex flex-col items-end">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <button
-            className={`p-2 rounded-lg shadow-lg transition-colors ${
+            className={`p-1.5 sm:p-2 rounded-lg shadow-lg transition-colors ${
               soundOn ? 'bg-white bg-opacity-20 hover:bg-opacity-30 text-white backdrop-blur-sm' : 'bg-white bg-opacity-10 hover:bg-opacity-20 text-gray-200 backdrop-blur-sm'
             }`}
             onClick={() => setSoundOn((s) => !s)}
             title={soundOn ? 'Sound On' : 'Sound Off'}
           >
             {soundOn ? (
-              <span className="text-xl">🔊</span>
+              <span className="text-base sm:text-xl">🔊</span>
             ) : (
-              <span className="text-xl">🔇</span>
+              <span className="text-base sm:text-xl">🔇</span>
             )}
           </button>
           
           <button
-            className="relative bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg shadow-lg transition-colors flex items-center gap-2 backdrop-blur-sm"
+            className="relative bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-lg transition-colors flex items-center gap-1 sm:gap-2 backdrop-blur-sm"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            <span className="text-2xl">🔔</span>
+            <span className="text-base sm:text-2xl">🔔</span>
             {history.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-yellow-400 text-orange-900 text-xs rounded-full px-2 py-0.5 font-semibold">
+              <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-yellow-400 text-orange-900 text-xs rounded-full px-1.5 sm:px-2 py-0.5 font-semibold">
                 {history.length}
               </span>
             )}
             <svg 
-              className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} 
+              className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -175,8 +175,8 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
         </div>
         
         {isDropdownOpen && (
-          <div className="absolute top-full mt-2 right-4 bg-white rounded-lg shadow-2xl w-96 max-h-96 overflow-hidden border border-gray-200">
-            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-3 flex items-center justify-between">
+          <div className="absolute top-full mt-2 right-0 sm:right-4 bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-80 sm:w-96 max-h-96 overflow-hidden border border-gray-200 dark:border-gray-700">
+            <div className="bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-600 dark:to-red-700 text-white px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-xl">📬</span>
                 <span className="font-bold">Notification History</span>
@@ -190,7 +190,7 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
             </div>
             <div className="overflow-y-auto max-h-80">
               {history.length === 0 ? (
-                <div className="p-6 text-center text-gray-400">
+                <div className="p-6 text-center text-gray-400 dark:text-gray-500">
                   <span className="text-4xl block mb-2">🔔</span>
                   <p>No notifications yet</p>
                 </div>
@@ -199,15 +199,15 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
                   {history.map((item, idx) => (
                     <li 
                       key={idx} 
-                      className="border-b last:border-b-0 px-4 py-3 hover:bg-gray-50 transition-colors"
+                      className="border-b dark:border-gray-700 last:border-b-0 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1">
                           <div className="flex items-start gap-2">
-                            <span className="text-orange-500 mt-0.5">•</span>
-                            <span className="flex-1 text-gray-700">{item.message}</span>
+                            <span className="text-orange-500 dark:text-orange-400 mt-0.5">•</span>
+                            <span className="flex-1 text-gray-700 dark:text-gray-300">{item.message}</span>
                           </div>
-                          <div className="text-xs text-gray-400 mt-1 ml-4">
+                          <div className="text-xs text-gray-400 dark:text-gray-500 mt-1 ml-4">
                             {item.timestamp.toLocaleTimeString()}
                           </div>
                         </div>
@@ -226,7 +226,7 @@ const NotificationSystem: React.FC<Props> = ({ onViewOrder }) => {
               )}
             </div>
             {history.length > 0 && (
-              <div className="bg-gray-50 px-4 py-2 text-center border-t">
+              <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 text-center border-t dark:border-gray-600">
                 <button
                   onClick={() => setHistory([])}
                   className="text-sm text-red-500 hover:text-red-700 font-medium"
