@@ -92,22 +92,21 @@ const OrdersManagement: React.FC<Props> = ({ externalSelectedOrder, onClearExter
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div className="overflow-x-auto -mx-4 sm:mx-0 touch-pan-x">
-        <div className="min-w-full inline-block align-middle">
-          <table className="w-full text-left text-sm min-w-[800px]">
-            <thead className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
-              <tr>
-                <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">Order #</th>
-                <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap hidden sm:table-cell">Chat ID</th>
-                <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap hidden md:table-cell">Items</th>
-                <th className="p-2 sm:p-3 font-semibold text-right text-gray-700 dark:text-gray-200 whitespace-nowrap">Total</th>
-                <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200 whitespace-nowrap">Status</th>
-                <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200 whitespace-nowrap hidden lg:table-cell">Payment</th>
-                <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200 whitespace-nowrap hidden xl:table-cell">Delivery Status</th>
-                <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap hidden sm:table-cell">Date</th>
-              </tr>
-            </thead>
-            <tbody>
+      <div className="overflow-x-auto -mx-4 sm:mx-0">
+        <table className="w-full text-left text-sm">
+          <thead className="bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
+            <tr>
+              <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200">Order #</th>
+              <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 hidden sm:table-cell">Chat ID</th>
+              <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 hidden md:table-cell">Items</th>
+              <th className="p-2 sm:p-3 font-semibold text-right text-gray-700 dark:text-gray-200">Total</th>
+              <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200">Status</th>
+              <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200 hidden lg:table-cell">Payment</th>
+              <th className="p-2 sm:p-3 font-semibold text-center text-gray-700 dark:text-gray-200 hidden xl:table-cell">Delivery Status</th>
+              <th className="p-2 sm:p-3 font-semibold text-gray-700 dark:text-gray-200 hidden sm:table-cell">Date</th>
+            </tr>
+          </thead>
+          <tbody>
             {filtered.length === 0 ? (
               <tr>
                 <td colSpan={8} className="text-center p-6 text-gray-500 dark:text-gray-400">No orders found</td>
@@ -155,7 +154,6 @@ const OrdersManagement: React.FC<Props> = ({ externalSelectedOrder, onClearExter
             )}
           </tbody>
         </table>
-        </div>
       </div>
       {selectedOrder && (
         <OrderDetailsModal order={selectedOrder} onClose={handleCloseModal} />
